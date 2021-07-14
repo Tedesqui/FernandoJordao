@@ -37,6 +37,35 @@ button.innerHTML="Ativar Som";
 Video_0.muted=true;
 }
 });
+            
+        fullbutton.addEventListener("click", function (evt) {
+            if (fullscreen == 0) {
+                if (elem.requestFullscreen) {
+                    elem.requestFullscreen();
+            } else if (elem.mozRequestFullScreen) {
+                    /* Firefox */
+                elem.mozRequestFullScreen();
+            } else if (elem.webkitRequestFullscreen) {
+                    /* Chrome, Safari and Opera */
+                elem.webkitRequestFullscreen();
+            } else if (elem.msRequestFullscreen) {
+                    /* IE/Edge */
+                elem.msRequestFullscreen();
+            }
+            fullbutton.setAttribute("src", "../exit_fullscreen.jpg");
+            fullscreen = 1;
+            } else {
+                    if (document.exitFullscreen) {
+                        document.exitFullscreen();
+                } else if (document.webkitExitFullscreen) {
+                        document.webkitExitFullscreen();
+                } else if (document.mozCancelFullScreen) {
+                        document.mozCancelFullScreen();
+                } else if (document.msExitFullscreen) {
+                        document.msExitFullscreen();
+                }
+                fullbutton.setAttribute("src", "../fullscreen.jpg");
+                fullscreen = 0;
 
             }
         });
